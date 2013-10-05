@@ -23,13 +23,22 @@ private:
     GLenum _mode;
     GLsizei _count;
     GLsizei _stride;
+    GLvoid *_positionOffset;
+    GLvoid *_normalOffset;
     
 public:
     
     GLuint getVertexBufferID();
     ShaderInterface *getShader();
     
-    VertexBuffer(const GLvoid *data, GLsizeiptr size, GLenum mode, GLsizei count, GLsizei stride, ShaderInterface *shader);
+    VertexBuffer(const GLvoid *data,
+                 GLsizeiptr size,
+                 GLenum mode,
+                 GLsizei count,
+                 GLsizei stride,
+                 ShaderInterface *shader,
+                 GLvoid *positionOffset,
+                 GLvoid *normalOffset);
     ~VertexBuffer();
     
     void configureVertexAttributes();

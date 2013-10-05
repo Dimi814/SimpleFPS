@@ -17,4 +17,11 @@ typedef struct {
     
 } VertexDataP;
 
+typedef struct {
+    
+    Vector3 positionCoordinates;
+    Vector3 normalCoordinates;
+    
+} VertexDataPN;
+
 #endif

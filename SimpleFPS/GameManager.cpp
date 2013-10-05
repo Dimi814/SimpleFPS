@@ -9,7 +9,10 @@
 #include "GameManager.h"
 
 
-GameManager::GameManager(bool running): _running(running), _window(glfwGetCurrentContext()), _renderSystem(&RenderSystem::getRenderSystem()), _resourceManager(&ResourceManager::getResourceManager())
+GameManager::GameManager(bool running):
+_running(running), _window(glfwGetCurrentContext()),
+_renderSystem(&RenderSystem::getRenderSystem()),
+_resourceManager(&ResourceManager::getResourceManager())
 {
 }
 
@@ -25,7 +28,7 @@ void GameManager::runGameLoop()
         
         _running = !glfwWindowShouldClose(_window);
 
-        _renderSystem->render((_resourceManager->getVertexBufferArray())->at(0));
+        _renderSystem->render((_resourceManager->getVertexBufferArray())->at(1));
     }
 }
 

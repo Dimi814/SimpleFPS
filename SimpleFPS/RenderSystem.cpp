@@ -25,11 +25,12 @@ void RenderSystem::render(VertexBuffer *vertexBuffer)
     glUseProgram((vertexBuffer->getShader())->getProgramHandle());
     
     glLoadIdentity();
-    gluLookAt(0.0f, 0.0f, -5.0f,
+    gluLookAt(3.0f, 2.0f, -2.0f,
               0.0f, 0.0f, 0.0f,
               0.0f, 1.0f, 0.0f);
     
-    glUniform4f((vertexBuffer->getShader())->get_aPositionVertex(), 1.0f, 1.0f, 0.0f, 1.0f);
+    glUniform4f((vertexBuffer->getShader())->get_uColor(),
+                1.0f, 1.0f, 0.0f, 1.0f);
     
     vertexBuffer->configureVertexAttributes();
     vertexBuffer->renderVertexBuffer();
@@ -51,6 +52,8 @@ RenderSystem& RenderSystem::getRenderSystem()
         gluPerspective(75.0f, 1280.0f/720.0f, 1, 1000);
         glViewport(0.0f, 0.0f, 1280.0f, 720.0f);
         glMatrixMode(GL_MODELVIEW);
+        
+        glEnable(GL_CULL_FACE);
     }
     
     return *renderSystem;
