@@ -20,6 +20,10 @@
 		A6A456EB17DC953D00350C0F /* RenderSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6A456E917DC953D00350C0F /* RenderSystem.cpp */; };
 		A6B41E5F17FF692700EEC842 /* SimpleLightShader.vsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = A6B41E5B17FF65FC00EEC842 /* SimpleLightShader.vsh */; };
 		A6B41E6017FF692700EEC842 /* SimpleLightShader.fsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = A6B41E5D17FF660D00EEC842 /* SimpleLightShader.fsh */; };
+		A6E43F94180497B800E03146 /* Vector4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6E43F92180497B800E03146 /* Vector4.cpp */; };
+		A6E43F971804988900E03146 /* ShaderData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6E43F951804988900E03146 /* ShaderData.cpp */; };
+		A6EAC9B91811D7D4009D93F4 /* MovementSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6EAC9B71811D7D4009D93F4 /* MovementSystem.cpp */; };
+		A6EB3F5D1808A06500BDA71E /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6EB3F5B1808A06500BDA71E /* Entity.cpp */; };
 		A6EE7C4D17FA110100C5335A /* Vector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6EE7C4B17FA110100C5335A /* Vector3.cpp */; };
 		A6EE7C5117FA11D200C5335A /* ResourceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6EE7C4F17FA11D200C5335A /* ResourceManager.cpp */; };
 /* End PBXBuildFile section */
@@ -63,6 +67,14 @@
 		A6B41E5B17FF65FC00EEC842 /* SimpleLightShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SimpleLightShader.vsh; sourceTree = "<group>"; };
 		A6B41E5D17FF660D00EEC842 /* SimpleLightShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SimpleLightShader.fsh; sourceTree = "<group>"; };
 		A6B41E6117FF6D6300EEC842 /* CubeVertices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CubeVertices.h; sourceTree = "<group>"; };
+		A6E43F92180497B800E03146 /* Vector4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector4.cpp; sourceTree = "<group>"; };
+		A6E43F93180497B800E03146 /* Vector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector4.h; sourceTree = "<group>"; };
+		A6E43F951804988900E03146 /* ShaderData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderData.cpp; sourceTree = "<group>"; };
+		A6E43F961804988900E03146 /* ShaderData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderData.h; sourceTree = "<group>"; };
+		A6EAC9B71811D7D4009D93F4 /* MovementSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MovementSystem.cpp; sourceTree = "<group>"; };
+		A6EAC9B81811D7D4009D93F4 /* MovementSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovementSystem.h; sourceTree = "<group>"; };
+		A6EB3F5B1808A06500BDA71E /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		A6EB3F5C1808A06500BDA71E /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		A6EE7C4B17FA110100C5335A /* Vector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vector3.cpp; sourceTree = "<group>"; };
 		A6EE7C4C17FA110100C5335A /* Vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vector3.h; sourceTree = "<group>"; };
 		A6EE7C4E17FA116A00C5335A /* VertexData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VertexData.h; sourceTree = "<group>"; };
@@ -83,6 +95,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A67B8B651807427E00478D49 /* SimpleLightShader */ = {
+			isa = PBXGroup;
+			children = (
+				A6B41E5B17FF65FC00EEC842 /* SimpleLightShader.vsh */,
+				A6B41E5D17FF660D00EEC842 /* SimpleLightShader.fsh */,
+			);
+			name = SimpleLightShader;
+			sourceTree = "<group>";
+		};
+		A67B8B66180742A100478D49 /* Vector4 */ = {
+			isa = PBXGroup;
+			children = (
+				A6E43F92180497B800E03146 /* Vector4.cpp */,
+				A6E43F93180497B800E03146 /* Vector4.h */,
+			);
+			name = Vector4;
+			sourceTree = "<group>";
+		};
 		A69BA1A217D34EF400AAF8F3 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +133,8 @@
 		A69BA1AD17D34EF400AAF8F3 /* SimpleFPS */ = {
 			isa = PBXGroup;
 			children = (
+				A67B8B66180742A100478D49 /* Vector4 */,
+				A67B8B651807427E00478D49 /* SimpleLightShader */,
 				A6B41E1117FF5E7F00EEC842 /* Resources */,
 				A6B41E1017FF5E5800EEC842 /* Vector3 */,
 				A6B41E0F17FF5E4100EEC842 /* ColorShader */,
@@ -117,12 +149,15 @@
 				A68E256817E3589A0004F49F /* ShaderLoader.h */,
 				A6A15F8617EF40B600818E9D /* ShaderInterface.cpp */,
 				A6A15F8717EF40B600818E9D /* ShaderInterface.h */,
-				A6EE7C4E17FA116A00C5335A /* VertexData.h */,
 				A6EE7C4F17FA11D200C5335A /* ResourceManager.cpp */,
 				A6EE7C5017FA11D200C5335A /* ResourceManager.h */,
-				A6B41E6117FF6D6300EEC842 /* CubeVertices.h */,
-				A6B41E5B17FF65FC00EEC842 /* SimpleLightShader.vsh */,
-				A6B41E5D17FF660D00EEC842 /* SimpleLightShader.fsh */,
+				A6EB3F5B1808A06500BDA71E /* Entity.cpp */,
+				A6EB3F5C1808A06500BDA71E /* Entity.h */,
+				A6E43F951804988900E03146 /* ShaderData.cpp */,
+				A6E43F961804988900E03146 /* ShaderData.h */,
+				A6EAC9B71811D7D4009D93F4 /* MovementSystem.cpp */,
+				A6EAC9B81811D7D4009D93F4 /* MovementSystem.h */,
+				A6EE7C4E17FA116A00C5335A /* VertexData.h */,
 				A69BA1B017D34EF400AAF8F3 /* SimpleFPS.1 */,
 			);
 			path = SimpleFPS;
@@ -158,6 +193,7 @@
 		A6B41E1117FF5E7F00EEC842 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A6B41E6117FF6D6300EEC842 /* CubeVertices.h */,
 				A62582AD17FB688400FE4BC0 /* TraingleVertices.h */,
 			);
 			name = Resources;
@@ -215,9 +251,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A69BA1AF17D34EF400AAF8F3 /* main.cpp in Sources */,
+				A6E43F94180497B800E03146 /* Vector4.cpp in Sources */,
 				A69BA1BE17D34F4200AAF8F3 /* GameManager.cpp in Sources */,
+				A6EB3F5D1808A06500BDA71E /* Entity.cpp in Sources */,
 				A6A456EB17DC953D00350C0F /* RenderSystem.cpp in Sources */,
+				A6E43F971804988900E03146 /* ShaderData.cpp in Sources */,
 				A6A15F8817EF40B600818E9D /* ShaderInterface.cpp in Sources */,
+				A6EAC9B91811D7D4009D93F4 /* MovementSystem.cpp in Sources */,
 				A6EE7C4D17FA110100C5335A /* Vector3.cpp in Sources */,
 				A659422A17E24722008AC7A5 /* VertexBuffer.cpp in Sources */,
 				A68E256917E3589A0004F49F /* ShaderLoader.cpp in Sources */,

@@ -20,4 +20,7 @@ typedef struct {
     
 } Vector3;
 
+Vector3 makeVector3(GLfloat x, GLfloat y, GLfloat z);
+Vector3 addVector3(Vector3 vectorA, Vector3 vectorB);
+
 #endif /* defined(__SimpleFPS__Vector3__) */

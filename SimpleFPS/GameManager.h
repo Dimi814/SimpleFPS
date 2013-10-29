@@ -13,6 +13,8 @@
 #include <GLFW/glfw3.h>
 #include "RenderSystem.h"
 #include "ResourceManager.h"
+#include "MovementSystem.h"
+#include "Entity.h"
 
 class GameManager
 {
@@ -21,7 +23,10 @@ private:
     bool _running;
     RenderSystem *_renderSystem;
     ResourceManager *_resourceManager;
+    MovementSystem *_movementSystem;
     GLFWwindow *_window;
+    
+    Entity *entity;
 
     
     GameManager(bool running);

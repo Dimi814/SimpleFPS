@@ -28,6 +28,8 @@ ResourceManager::ResourceManager()
     ShaderInterface *lightShader = new ShaderInterface("SimpleLightShader.vsh", "SimpleLightShader.fsh");
     _shaderArray->push_back(lightShader);
     
+    shaderData = new ShaderData(makeVector4(1.0f, 0.0f, 1.0f, 1.0f), makeVector3(1.0f, 1.0f, 1.0f));
+    
     _vertexBufferArray = new std::vector<VertexBuffer *>();
     VertexBuffer *vertexBuffer = new VertexBuffer(vertices,
                                                   sizeof(vertices),
@@ -35,6 +37,7 @@ ResourceManager::ResourceManager()
                                                   3,
                                                   sizeof(GLfloat)*3,
                                                   _shaderArray->at(0),
+                                                  shaderData,
                                                   NULL,
                                                   NULL);
     _vertexBufferArray->push_back(vertexBuffer);
@@ -44,6 +47,7 @@ ResourceManager::ResourceManager()
                                                   36,
                                                   sizeof(VertexDataPN),
                                                   _shaderArray->at(1),
+                                                shaderData,
                                                   (GLvoid *)(offsetof(VertexDataPN, positionCoordinates)),
                                                   (GLvoid *)(offsetof(VertexDataPN, normalCoordinates)));
     _vertexBufferArray->push_back(cubeVertexBuffer);
@@ -66,6 +70,7 @@ ResourceManager::~ResourceManager()
         delete *iterator;
     }
     
+    delete shaderData;
     delete _vertexBufferArray;
 }
 

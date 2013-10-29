@@ -12,8 +12,15 @@
 GameManager::GameManager(bool running):
 _running(running), _window(glfwGetCurrentContext()),
 _renderSystem(&RenderSystem::getRenderSystem()),
-_resourceManager(&ResourceManager::getResourceManager())
+_resourceManager(&ResourceManager::getResourceManager()),
+_movementSystem(&MovementSystem::getMovementSystem())
 {
+    entity = new Entity(_resourceManager->getVertexBufferArray()->at(1), makeVector3(0.0f, 1.0f, 0.0f));
+    entity->setRotation(makeVector3(90.0f, 0.0f, 0.0f));
+    entity->setScale(makeVector3(1.0f, 1.0f, 1.0f));
+    entity->setVelocity(makeVector3(-0.05f, 0.001f, -0.001f));
+    entity->setRotationVelocity(makeVector3(1.0f, 1.0f, 0.0f));
+    entity->setScaleVelocity(makeVector3(0.01f, 0.0f, 0.0f));
 }
 
 GameManager::~GameManager()
@@ -22,13 +29,29 @@ GameManager::~GameManager()
     RenderSystem::destroyRenderSystem();
 }
 
+#define Updates_Per_Second 60.0f
+
 void GameManager::runGameLoop()
 {
+    double lastTime = glfwGetTime();
+    double deltaTime = 0.0f;
+    
     while (_running) {
         
-        _running = !glfwWindowShouldClose(_window);
-
-        _renderSystem->render((_resourceManager->getVertexBufferArray())->at(1));
+        double currentTime = glfwGetTime();
+        deltaTime += (currentTime - lastTime) * Updates_Per_Second;
+        lastTime = currentTime;
+        
+        while (deltaTime >= 1.0f) {
+        
+            _running = !glfwWindowShouldClose(_window);
+        
+            _movementSystem->update(entity);
+        
+            --deltaTime;
+        }
+        
+        _renderSystem->render(entity);
     }
 }
 
@@ -45,6 +68,8 @@ GameManager& GameManager::getGameManager()
         glfwWindowHint(GLFW_GREEN_BITS, 8);
         glfwWindowHint(GLFW_BLUE_BITS, 8);
         glfwWindowHint(GLFW_ALPHA_BITS, 8);
+        glfwWindowHint(GLFW_SAMPLES, 16);
+        glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
         GLFWwindow *window = glfwCreateWindow(1280, 720, "Simple FPS", NULL, NULL);
         glfwMakeContextCurrent(window);
         

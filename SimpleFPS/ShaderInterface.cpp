@@ -30,6 +30,11 @@ GLint ShaderInterface::get_uColor()
     return _uColor;
 }
 
+GLint ShaderInterface::get_uLightPosition()
+{
+    return _uLightPosition;
+}
+
 ShaderInterface::ShaderInterface(const char *VS, const char *FS)
 {
     
@@ -45,6 +50,7 @@ ShaderInterface::ShaderInterface(const char *VS, const char *FS)
     _aPositionNormal = glGetAttribLocation(shader->getProgramHandle(), "aPositionNormal");
     
     _uColor = glGetUniformLocation(shader->getProgramHandle(), "uColor");
+    _uLightPosition = glGetUniformLocation(shader->getProgramHandle(), "uLightPosition");
 
 }
 

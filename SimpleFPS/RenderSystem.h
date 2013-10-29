@@ -15,6 +15,7 @@
 #include "VertexBuffer.h"
 #include <vector>
 #include "ShaderInterface.h"
+#include "Entity.h"
 
 class RenderSystem
 {
@@ -27,7 +28,7 @@ private:
     
 public:
     
-    void render(VertexBuffer *vertexBuffer);
+    void render(Entity *entity);
     
     static RenderSystem& getRenderSystem();
     static void destroyRenderSystem();

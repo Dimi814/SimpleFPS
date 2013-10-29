@@ -18,22 +18,39 @@ RenderSystem::~RenderSystem()
 {
 }
 
-void RenderSystem::render(VertexBuffer *vertexBuffer)
+void RenderSystem::render(Entity *entity)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    glUseProgram((vertexBuffer->getShader())->getProgramHandle());
+    glUseProgram(entity->getVertexBuffer()->getShader()->getProgramHandle());
     
     glLoadIdentity();
-    gluLookAt(3.0f, 2.0f, -2.0f,
+    gluLookAt(1.0f, 1.0f, 2.0f,
               0.0f, 0.0f, 0.0f,
               0.0f, 1.0f, 0.0f);
     
-    glUniform4f((vertexBuffer->getShader())->get_uColor(),
-                1.0f, 1.0f, 0.0f, 1.0f);
+    glTranslatef(entity->getPosition().x, entity->getPosition().y, entity->getPosition().z);
     
-    vertexBuffer->configureVertexAttributes();
-    vertexBuffer->renderVertexBuffer();
+    glRotatef(entity->getRotation().x, 0.0f, 0.0f, 1.0f);
+    glRotatef(entity->getRotation().y, 0.0f, 1.0f, 0.0f);
+    glRotatef(entity->getRotation().z, 1.0f, 0.0f, 0.0f);
+    
+    glScalef(entity->getScale().x, entity->getScale().y, entity->getScale().z);
+
+    glUniform4f(entity->getVertexBuffer()->getShader()->get_uColor(),
+                entity->getVertexBuffer()->getShaderData()->get_uColorValue().x,
+                entity->getVertexBuffer()->getShaderData()->get_uColorValue().y,
+                entity->getVertexBuffer()->getShaderData()->get_uColorValue().z,
+                entity->getVertexBuffer()->getShaderData()->get_uColorValue().w);
+    
+    glUniform3f(entity->getVertexBuffer()->getShader()->get_uLightPosition(),
+                entity->getVertexBuffer()->getShaderData()->get_uLightPosition().x,
+                entity->getVertexBuffer()->getShaderData()->get_uLightPosition().y,
+                entity->getVertexBuffer()->getShaderData()->get_uLightPosition().z);
+
+    
+    entity->getVertexBuffer()->configureVertexAttributes();
+    entity->getVertexBuffer()->renderVertexBuffer();
     
     glfwSwapBuffers(_window);
     glfwPollEvents();
