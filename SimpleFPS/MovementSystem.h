@@ -23,7 +23,7 @@ private:
     
 public:
     
-    void update(Entity *entity);
+    void update(std::vector<Entity *> *entityArray);
     
     static MovementSystem& getMovementSystem();
     static void destroyMovementSystem();

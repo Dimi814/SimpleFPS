@@ -78,13 +78,32 @@ void Entity::setRotationVelocity(Vector3 newRotationVelocity)
     _rotationVelocity = newRotationVelocity;
 }
 
+Vector3 Entity::getEyeVector()
+{
+    return _eyeVector;
+}
 
+void Entity::setEyeVector(Vector3 newEyeVector)
+{
+    _eyeVector = newEyeVector;
+}
+
+Vector3 Entity::getUpVector()
+{
+    return _upVector;
+}
+
+void Entity::setUpVector(Vector3 newUpVector)
+{
+    _upVector = newUpVector;
+}
 
 Entity::Entity(VertexBuffer *vertexBuffer, Vector3 position):
 _vertexBuffer(vertexBuffer), _position(position),
 _scale(makeVector3(1.0f, 1.0f, 1.0f)), _rotation(makeVector3(0.0f, 0.0f, 0.0f)),
 _velocity(makeVector3(0.0f, 0.0f, 0.0f)), _scaleVelocity(makeVector3(0.0f, 0.0f, 0.0f)),
-_rotationVelocity(makeVector3(0.0f, 0.0f, 0.0f))
+_rotationVelocity(makeVector3(0.0f, 0.0f, 0.0f)), _eyeVector(makeVector3(0.0f, 0.0f, 0.0f)),
+_upVector(makeVector3(0.0f, 1.0f, 0.0f))
 {
 }
 

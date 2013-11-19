@@ -14,7 +14,9 @@
 #include "RenderSystem.h"
 #include "ResourceManager.h"
 #include "MovementSystem.h"
+#include "CameraSystem.h"
 #include "Entity.h"
+#include "Scene.h"
 
 class GameManager
 {
@@ -24,10 +26,10 @@ private:
     RenderSystem *_renderSystem;
     ResourceManager *_resourceManager;
     MovementSystem *_movementSystem;
+    CameraSystem *_cameraSystem;
     GLFWwindow *_window;
     
-    Entity *entity;
-
+    Scene *scene;
     
     GameManager(bool running);
     ~GameManager();

@@ -10,24 +10,50 @@
 #include "ShaderInterface.h"
 
 
-RenderSystem::RenderSystem(): _window(glfwGetCurrentContext())
+Entity* RenderSystem::getCurrentCamera()
 {
+    return _currentCamera;
+}
+
+void RenderSystem::setCurrentCamera(Entity *newCamera)
+{
+    _currentCamera = newCamera;
+}
+
+
+RenderSystem::RenderSystem(): _window(glfwGetCurrentContext()),
+_cameraSystem(&CameraSystem::getCameraSystem())
+{
+    _currentCamera = _cameraSystem->getCurrentCamera();
 }
 
 RenderSystem::~RenderSystem()
 {
 }
 
-void RenderSystem::render(Entity *entity)
+void RenderSystem::render(std::vector<Entity *> *entityArray)
 {
+    for (std::vector<Entity *>::iterator iterator = entityArray->begin(); iterator != entityArray->end(); iterator++) {
+    
+        Entity *entity = *iterator;
+        if (entity->getVertexBuffer() != NULL) {
+            
+        
+        
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     glUseProgram(entity->getVertexBuffer()->getShader()->getProgramHandle());
     
     glLoadIdentity();
-    gluLookAt(1.0f, 1.0f, 2.0f,
-              0.0f, 0.0f, 0.0f,
-              0.0f, 1.0f, 0.0f);
+    gluLookAt(_currentCamera->getPosition().x,
+              _currentCamera->getPosition().y,
+              _currentCamera->getPosition().z,
+              _currentCamera->getEyeVector().x,
+              _currentCamera->getEyeVector().y,
+              _currentCamera->getEyeVector().z,
+              _currentCamera->getUpVector().x,
+              _currentCamera->getUpVector().y,
+              _currentCamera->getUpVector().z);
     
     glTranslatef(entity->getPosition().x, entity->getPosition().y, entity->getPosition().z);
     
@@ -54,6 +80,8 @@ void RenderSystem::render(Entity *entity)
     
     glfwSwapBuffers(_window);
     glfwPollEvents();
+        }
+    }
 }
 
 RenderSystem& RenderSystem::getRenderSystem()

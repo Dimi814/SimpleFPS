@@ -13,19 +13,15 @@ GameManager::GameManager(bool running):
 _running(running), _window(glfwGetCurrentContext()),
 _renderSystem(&RenderSystem::getRenderSystem()),
 _resourceManager(&ResourceManager::getResourceManager()),
-_movementSystem(&MovementSystem::getMovementSystem())
+_movementSystem(&MovementSystem::getMovementSystem()),
+_cameraSystem(&CameraSystem::getCameraSystem()), scene(new Scene)
 {
-    entity = new Entity(_resourceManager->getVertexBufferArray()->at(1), makeVector3(0.0f, 1.0f, 0.0f));
-    entity->setRotation(makeVector3(90.0f, 0.0f, 0.0f));
-    entity->setScale(makeVector3(1.0f, 1.0f, 1.0f));
-    entity->setVelocity(makeVector3(-0.05f, 0.001f, -0.001f));
-    entity->setRotationVelocity(makeVector3(1.0f, 1.0f, 0.0f));
-    entity->setScaleVelocity(makeVector3(0.01f, 0.0f, 0.0f));
 }
 
 GameManager::~GameManager()
 {
     ResourceManager::destroyResourceManager();
+    CameraSystem::destroyCameraSystem();
     RenderSystem::destroyRenderSystem();
 }
 
@@ -46,12 +42,12 @@ void GameManager::runGameLoop()
         
             _running = !glfwWindowShouldClose(_window);
         
-            _movementSystem->update(entity);
+            _movementSystem->update(scene->getChildren());
         
             --deltaTime;
         }
         
-        _renderSystem->render(entity);
+        _renderSystem->render(scene->getChildren());
     }
 }
 

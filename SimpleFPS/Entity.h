@@ -28,6 +28,9 @@ private:
     Vector3 _scaleVelocity;
     Vector3 _rotationVelocity;
     
+    Vector3 _eyeVector;
+    Vector3 _upVector;
+    
 public:
     
     VertexBuffer *getVertexBuffer();
@@ -50,7 +53,12 @@ public:
     
     Vector3 getRotationVelocity();
     void setRotationVelocity(Vector3 newRotationVelocity);
-
+    
+    Vector3 getEyeVector();
+    void setEyeVector(Vector3 newEyeVector);
+    
+    Vector3 getUpVector();
+    void setUpVector(Vector3 newUpVector);
 
     Entity(VertexBuffer *vertexBuffer, Vector3 position);
     ~Entity();
