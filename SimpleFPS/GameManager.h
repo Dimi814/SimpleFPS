@@ -15,6 +15,7 @@
 #include "ResourceManager.h"
 #include "MovementSystem.h"
 #include "CameraSystem.h"
+#include "PlayerInputSystem.h"
 #include "Entity.h"
 #include "Scene.h"
 
@@ -27,6 +28,7 @@ private:
     ResourceManager *_resourceManager;
     MovementSystem *_movementSystem;
     CameraSystem *_cameraSystem;
+    PlayerInputSystem *_playerInputSystem;
     GLFWwindow *_window;
     
     Scene *scene;

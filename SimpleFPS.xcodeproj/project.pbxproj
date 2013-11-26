@@ -13,6 +13,7 @@
 		A68A625717F613E600E3AA29 /* ColorShader.fsh in CopyFiles */ = {isa = PBXBuildFile; fileRef = A6A15F8417EF344100818E9D /* ColorShader.fsh */; };
 		A68DEADA183BEDBA00C91585 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A68DEAD8183BEDBA00C91585 /* Scene.cpp */; };
 		A68E256917E3589A0004F49F /* ShaderLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A68E256717E3589A0004F49F /* ShaderLoader.cpp */; };
+		A68F2E6C18454216009EFC67 /* PlayerInputSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A68F2E6A18454216009EFC67 /* PlayerInputSystem.cpp */; };
 		A69BA1AF17D34EF400AAF8F3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A69BA1AE17D34EF400AAF8F3 /* main.cpp */; };
 		A69BA1B117D34EF400AAF8F3 /* SimpleFPS.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = A69BA1B017D34EF400AAF8F3 /* SimpleFPS.1 */; };
 		A69BA1B817D34F0C00AAF8F3 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69BA1B717D34F0C00AAF8F3 /* OpenGL.framework */; };
@@ -57,6 +58,8 @@
 		A68DEAD9183BEDBA00C91585 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		A68E256717E3589A0004F49F /* ShaderLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderLoader.cpp; sourceTree = "<group>"; };
 		A68E256817E3589A0004F49F /* ShaderLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderLoader.h; sourceTree = "<group>"; };
+		A68F2E6A18454216009EFC67 /* PlayerInputSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerInputSystem.cpp; sourceTree = "<group>"; };
+		A68F2E6B18454216009EFC67 /* PlayerInputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerInputSystem.h; sourceTree = "<group>"; };
 		A69BA1AB17D34EF400AAF8F3 /* SimpleFPS */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimpleFPS; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69BA1AE17D34EF400AAF8F3 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A69BA1B017D34EF400AAF8F3 /* SimpleFPS.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SimpleFPS.1; sourceTree = "<group>"; };
@@ -155,8 +158,8 @@
 		A69BA1AD17D34EF400AAF8F3 /* SimpleFPS */ = {
 			isa = PBXGroup;
 			children = (
-				A69A06DF1836CFB700BBF4CD /* DataModel Meshes */,
 				A67B8B66180742A100478D49 /* Vector4 */,
+				A69A06DF1836CFB700BBF4CD /* DataModel Meshes */,
 				A67B8B651807427E00478D49 /* SimpleLightShader */,
 				A6B41E1117FF5E7F00EEC842 /* Resources */,
 				A6B41E1017FF5E5800EEC842 /* Vector3 */,
@@ -165,6 +168,8 @@
 				A69BA1BC17D34F4200AAF8F3 /* GameManager.cpp */,
 				A69BA1BD17D34F4200AAF8F3 /* GameManager.h */,
 				A68DEAD8183BEDBA00C91585 /* Scene.cpp */,
+				A68F2E6A18454216009EFC67 /* PlayerInputSystem.cpp */,
+				A68F2E6B18454216009EFC67 /* PlayerInputSystem.h */,
 				A68DEAD9183BEDBA00C91585 /* Scene.h */,
 				A6627F801830367300911553 /* CameraSystem.cpp */,
 				A6627F811830367300911553 /* CameraSystem.h */,
@@ -273,6 +278,7 @@
 				A69BA1BE17D34F4200AAF8F3 /* GameManager.cpp in Sources */,
 				A6EB3F5D1808A06500BDA71E /* Entity.cpp in Sources */,
 				A6A456EB17DC953D00350C0F /* RenderSystem.cpp in Sources */,
+				A68F2E6C18454216009EFC67 /* PlayerInputSystem.cpp in Sources */,
 				A6627F821830367300911553 /* CameraSystem.cpp in Sources */,
 				A6E43F971804988900E03146 /* ShaderData.cpp in Sources */,
 				A6A15F8817EF40B600818E9D /* ShaderInterface.cpp in Sources */,

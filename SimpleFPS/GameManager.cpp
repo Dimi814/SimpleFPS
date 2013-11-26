@@ -14,7 +14,7 @@ _running(running), _window(glfwGetCurrentContext()),
 _renderSystem(&RenderSystem::getRenderSystem()),
 _resourceManager(&ResourceManager::getResourceManager()),
 _movementSystem(&MovementSystem::getMovementSystem()),
-_cameraSystem(&CameraSystem::getCameraSystem()), scene(new Scene)
+_cameraSystem(&CameraSystem::getCameraSystem()), scene(new Scene), _playerInputSystem(&PlayerInputSystem::getPlayerInputSystem())
 {
 }
 
@@ -23,6 +23,7 @@ GameManager::~GameManager()
     ResourceManager::destroyResourceManager();
     CameraSystem::destroyCameraSystem();
     RenderSystem::destroyRenderSystem();
+    PlayerInputSystem::destroyPlayerInputSystem();
 }
 
 #define Updates_Per_Second 60.0f
