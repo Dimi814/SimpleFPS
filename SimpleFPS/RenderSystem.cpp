@@ -94,7 +94,7 @@ RenderSystem& RenderSystem::getRenderSystem()
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         
         glMatrixMode(GL_PROJECTION);
-        gluPerspective(75.0f, 1280.0f/720.0f, 1, 1000);
+        gluPerspective(65.0f, 1280.0f/720.0f, 1, 1000);
         glViewport(0.0f, 0.0f, 1280.0f, 720.0f);
         glMatrixMode(GL_MODELVIEW);
         
