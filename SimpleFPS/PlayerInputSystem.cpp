@@ -66,7 +66,7 @@ void PlayerInputSystem::update()
         Vector2 currentMousePosition;
         glfwGetCursorPos(_window, &currentMousePosition.x, &currentMousePosition.y);
         
-        _eyeVector = transformVector3(_eyeVector, makeRotationMatrix3((3.14f/(4.0f*75.0f))*-(currentMousePosition.x - _lastMousePosition.x), 0.0f, 1.0f, 0.0f));
+        _eyeVector = transformVector3(_eyeVector, makeRotationMatrix3((3.14f/(4.0f*45.0f))*-(currentMousePosition.x - _lastMousePosition.x), 0.0f, 1.0f, 0.0f));
         
         glfwGetCursorPos(_window, &_lastMousePosition.x, &_lastMousePosition.y);
         
