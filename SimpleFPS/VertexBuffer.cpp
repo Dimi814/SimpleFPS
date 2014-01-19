@@ -48,6 +48,7 @@ VertexBuffer::~VertexBuffer()
 
 void VertexBuffer::configureVertexAttributes()
 {
+    glBindBuffer(GL_ARRAY_BUFFER, _vertexBufferID);
     if (_shader->get_aPositionVertex() != -1) {
         glEnableVertexAttribArray(_shader->get_aPositionVertex());
         glVertexAttribPointer(_shader->get_aPositionVertex(), 3, GL_FLOAT, GL_FALSE, _stride, _positionOffset);
