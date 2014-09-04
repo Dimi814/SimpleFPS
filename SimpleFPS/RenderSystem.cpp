@@ -33,18 +33,16 @@ RenderSystem::~RenderSystem()
 
 void RenderSystem::render(std::vector<Entity *> *entityArray)
 {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
     for (std::vector<Entity *>::iterator iterator = entityArray->begin(); iterator != entityArray->end(); iterator++) {
     
         Entity *entity = *iterator;
         if (entity->getVertexBuffer() != NULL) {
-            
-        
-        
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     glUseProgram(entity->getVertexBuffer()->getShader()->getProgramHandle());
-    
     glLoadIdentity();
+    
     gluLookAt(_currentCamera->getPosition().x,
               _currentCamera->getPosition().y,
               _currentCamera->getPosition().z,
@@ -77,11 +75,11 @@ void RenderSystem::render(std::vector<Entity *> *entityArray)
     
     entity->getVertexBuffer()->configureVertexAttributes();
     entity->getVertexBuffer()->renderVertexBuffer();
-    
-    glfwSwapBuffers(_window);
-    glfwPollEvents();
         }
     }
+        
+    glfwSwapBuffers(_window);
+    glfwPollEvents();
 }
 
 RenderSystem& RenderSystem::getRenderSystem()
